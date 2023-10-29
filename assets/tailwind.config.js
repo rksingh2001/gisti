@@ -14,7 +14,28 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        brand: "#FD4F00",
+        gistiDark: {
+          dark: "#010101",
+          DEFAULT: "#3C3B3B",
+          light: "#828282"
+        },
+        gistiPurple: {
+          dark: "#631A61",
+          DEFAULT: "#A834A5",
+          light: "#E88FE5"
+        },
+        gistiLavender: {
+          dark: "#8C52FF",
+          DEFAULT: "#9D74EE",
+          light: "#BC9AFF"
+        }
+      },
+      fontFamily: {
+        brand: ["WorkSans", "sans-serif"]
+      },
+      fontWeight: {
+        regular: "normal",
+        bold: "bold"
       }
     },
   },
