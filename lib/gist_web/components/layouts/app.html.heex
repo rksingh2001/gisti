@@ -1,5 +1,5 @@
-<header class="flex justify-between items-center px-6 py-3 bg-gistiDark">
-  <div class="flex relative">
+<header class="flex justify-between items-center px-6 py-3 bg-gistiDark w-screen">
+  <div class="flex  ">
     <a href={~p"/"}>
       <img src="/images/gist-logo.svg" alt="Logo" class="h-8 w-auto">
     </a>
@@ -11,9 +11,40 @@
       <button class="mt-2 mr-2 text-white text-[1rem] font-brand font-bold hover:text-gistiDark-light">All gists</button>
     </div>
   </div>
-  <div class="relative">
-    <button class="img-down-arrow" type="button" id="user-menu-button">
+<div class="relative">
+    <button class="img-down-arrow" type="button" id="user-menu-button" phx-click={GistWeb.Layouts.App.toggle_dropdown_menu()}>
       <img src="/images/user-image.svg" alt="Profile Image" class="round-image-padding w-8 h-8">
     </button>
+    <div
+      id="dropdown_menu"
+      class="dropdown-menu-arrow absolute right-0 mt-2 p-2 w-48 bg-gistiDark rounded-lg shadow-xl border border-white"
+      hidden="true"
+    >
+    <%= if @current_user do %>
+      <.link href={~p"/users/settings"} class="menu-item border-b border-white border-opacity-50" role="menuitem" tabindex="-1" method="get" id="user-menu-item-0">
+        Signed in as <%= @current_user.email %>
+      </.link>
+      <.link href="#" class="menu-item" role="menuitem" tabindex="-1" method="get" id="user-menu-item-1">
+        Your Gists
+      </.link>
+      <.link href="#" class="menu-item border-b border-white border-opacity-50" role="menuitem" tabindex="-1" method="get" id="user-menu-item-2">
+        Saved Gists
+      </.link>
+      <.link href={~p"/users/log_out"} class="menu-item" role="menuitem" tabindex="-1" method="delete" id="user-menu-item-3">
+        Sign Out
+      </.link>
+    <% else %>
+      <.link href={~p"/users/log_in"} class="menu-item border-b border-white border-opacity-50" role="menuitem" tabindex="-1" method="get" id="user-menu-item-0">
+        Sign In
+      </.link>
+      <.link href={~p"/users/register"} class="menu-item" role="menuitem" tabindex="-1" method="get" id="user-menu-item-1">
+        Register
+      </.link>
+    <% end %>
+    </div>
   </div>
 </header>
+<main>
+  <.flash_group flash={@flash} />
+  <%= @inner_content %>
+</main>
