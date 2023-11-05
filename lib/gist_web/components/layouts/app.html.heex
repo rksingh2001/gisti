@@ -1,46 +1,98 @@
 <header class="flex justify-between items-center px-6 py-3 bg-gistiDark w-screen">
   <div class="flex  ">
     <a href={~p"/"}>
-      <img src="/images/gist-logo.svg" alt="Logo" class="h-8 w-auto">
+      <img src="/images/gist-logo.svg" alt="Logo" class="h-8 w-auto" />
     </a>
     <a href={~p"/"} class="mr-6">
       <div class="text-white font-brand font-bold text-3xl">Gist</div>
     </a>
     <div>
-      <input type="text" class="rounded-lg focus:outline-none focus:border-gistiLavender focus:ring-0 px-3 py-1 bg-gistiDark-dark placeholder-gistiDark-light text-white font-brand font-regular text-sm mr-5 border-white" />
-      <button class="mt-2 mr-2 text-white text-[1rem] font-brand font-bold hover:text-gistiDark-light">All gists</button>
+      <input
+        type="text"
+        class="rounded-lg focus:outline-none focus:border-gistiLavender focus:ring-0 px-3 py-1 bg-gistiDark-dark placeholder-gistiDark-light text-white font-brand font-regular text-sm mr-5 border-white"
+      />
+      <button class="mt-2 mr-2 text-white text-[1rem] font-brand font-bold hover:text-gistiDark-light">
+        All gists
+      </button>
     </div>
   </div>
-<div class="relative">
-    <button class="img-down-arrow" type="button" id="user-menu-button" phx-click={GistWeb.Layouts.App.toggle_dropdown_menu()}>
-      <img src="/images/user-image.svg" alt="Profile Image" class="round-image-padding w-8 h-8">
+  <div class="relative">
+    <button
+      class="img-down-arrow"
+      type="button"
+      id="user-menu-button"
+      phx-click={GistWeb.Layouts.App.toggle_dropdown_menu()}
+    >
+      <img src="/images/user-image.svg" alt="Profile Image" class="round-image-padding w-8 h-8" />
     </button>
     <div
       id="dropdown_menu"
       class="dropdown-menu-arrow absolute right-0 mt-2 p-2 w-48 bg-gistiDark rounded-lg shadow-xl border border-white"
       hidden="true"
     >
-    <%= if @current_user do %>
-      <.link href={~p"/users/settings"} class="menu-item border-b border-white border-opacity-50" role="menuitem" tabindex="-1" method="get" id="user-menu-item-0">
-        Signed in as <%= @current_user.email %>
-      </.link>
-      <.link href="#" class="menu-item" role="menuitem" tabindex="-1" method="get" id="user-menu-item-1">
-        Your Gists
-      </.link>
-      <.link href="#" class="menu-item border-b border-white border-opacity-50" role="menuitem" tabindex="-1" method="get" id="user-menu-item-2">
-        Saved Gists
-      </.link>
-      <.link href={~p"/users/log_out"} class="menu-item" role="menuitem" tabindex="-1" method="delete" id="user-menu-item-3">
-        Sign Out
-      </.link>
-    <% else %>
-      <.link href={~p"/users/log_in"} class="menu-item border-b border-white border-opacity-50" role="menuitem" tabindex="-1" method="get" id="user-menu-item-0">
-        Sign In
-      </.link>
-      <.link href={~p"/users/register"} class="menu-item" role="menuitem" tabindex="-1" method="get" id="user-menu-item-1">
-        Register
-      </.link>
-    <% end %>
+      <%= if @current_user do %>
+        <.link
+          href={~p"/users/settings"}
+          class="menu-item border-b border-white border-opacity-50"
+          role="menuitem"
+          tabindex="-1"
+          method="get"
+          id="user-menu-item-0"
+        >
+          Signed in as <%= @current_user.email %>
+        </.link>
+        <.link
+          href="#"
+          class="menu-item"
+          role="menuitem"
+          tabindex="-1"
+          method="get"
+          id="user-menu-item-1"
+        >
+          Your Gists
+        </.link>
+        <.link
+          href="#"
+          class="menu-item border-b border-white border-opacity-50"
+          role="menuitem"
+          tabindex="-1"
+          method="get"
+          id="user-menu-item-2"
+        >
+          Saved Gists
+        </.link>
+        <.link
+          href={~p"/users/log_out"}
+          class="menu-item"
+          role="menuitem"
+          tabindex="-1"
+          method="delete"
+          id="user-menu-item-3"
+        >
+          Sign Out
+        </.link>
+      <% else %>
+        <.link
+          href={~p"/users/log_in"}
+          class="menu-item border-b border-white border-opacity-50"
+          role="menuitem"
+          tabindex="-1"
+          method="get"
+          id="user-menu-item-0"
+        >
+          Sign In
+        </.link>
+        <.link
+          href={~p"/users/register"}
+          class="menu-item"
+          role="menuitem"
+          tabindex="-1"
+          method="get"
+          id="user-menu-item-1"
+        >
+          Register
+        </.link>
+      <% end %>
     </div>
   </div>
 </header>
@@ -53,7 +105,7 @@
     <div class="border-t-[1px] border-white w-full"></div>
     <div class="flex items-center space-x-2 py-6">
       <img src="/images/em-logo.svg" alt="Elixir Mentor Logo" class="h-8 w-8" />
-      <p>2023 Raunak Singh Jolly</p> 
+      <p>2023 Raunak Singh Jolly</p>
       <div class="text-gistiLavender-dark px-4 space-x-2">
         <a class="hover:underline" href={~p"/"}>Terms</a>
         <a class="hover:underline" href={~p"/"}>Privacy</a>
