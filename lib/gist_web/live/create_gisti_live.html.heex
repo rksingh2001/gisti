@@ -3,3 +3,19 @@
     Instantly share Elixir code, notes and snippets.
   </h1>
 </div>
+<.form for={@form}>
+  <div class="justify center px-28 w-full space-y-4 mb-10">
+    <.input field={@form[:description]} placeholder="Gist description..." autocomplete="off" />
+    <div>
+      <div class="flex p-2 items-center bg-gistiDark rounded-t-md border">
+        <div class="w-[300px] mb-2">
+          <.input class="w-full" field={@form[:name]} placeholder="Filename including extension..." autocomplete="off" />
+        </div>
+      </div>
+      <%= textarea(@form, :markup_text, class: "textarea w-full rounded-b-md", placeholder: "Insert code...", spellcheck: "false", autocomplete: "false")%>
+    </div>
+    <div class="flex justify-end">
+      <.button class="!bg-gistiPurple border border-white font-brand font-regular text-base text-white hover:!bg-gistiPurple-dark hover:text-gistiDark-light hover:border-gistiDark-light">Create Gist</.button>
+    </div>
+  </div>
+</.form>

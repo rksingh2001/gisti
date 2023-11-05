@@ -40,6 +40,23 @@
   @apply hover:text-gistiDark-light
 }
 
+form input[type="text"] {
+  @apply bg-gistiDark-dark font-brand font-regular text-white text-xs border border-white
+}
+
+form input[type="text"]:focus {
+  @apply focus:outline-none focus:border-gistiLavender focus:ring-0
+}
+
+.textarea {
+  @apply bg-gistiDark-dark font-brand font-regular text-white text-xs border border-white h-[300px] resize-none;
+  border-top: none;
+}
+
+.textarea:focus {
+  @apply focus:outline-none focus:border-white focus:ring-0
+}
+
 .round-image-padding {
   border-radius: 50%;
   border: 1.5px solid white;
