@@ -51,9 +51,20 @@ form input[type="text"]:focus {
 .textarea {
   @apply bg-gistiDark-dark font-brand font-regular text-white text-xs border border-white h-[300px] resize-none;
   border-top: none;
+  border-left: none;
 }
 
 .textarea:focus {
+  @apply focus:outline-none focus:border-white focus:ring-0
+}
+
+.line-numbers {
+  @apply border border-white font-brand font-regular text-xs text-gistiDark-light bg-gistiDark-dark h-[300px] w-[54px] text-right overflow-hidden resize-none;
+  border-right: none;
+  border-top: none;
+}
+
+.line-numbers:focus {
   @apply focus:outline-none focus:border-white focus:ring-0
 }
 
