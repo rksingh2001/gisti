@@ -3,9 +3,9 @@
     Instantly share Elixir code, notes and snippets.
   </h1>
 </div>
-<.form for={@form}>
+<.form for={@form} phx-submit="create" phx-change="validate">
   <div class="justify center px-28 w-full space-y-4 mb-10">
-    <.input field={@form[:description]} placeholder="Gist description..." autocomplete="off" />
+    <.input field={@form[:description]} placeholder="Gist description..." autocomplete="off" phx-debounce="blur" />
     <div>
       <div class="flex p-2 items-center bg-gistiDark rounded-t-md border">
         <div class="w-[300px] mb-2">
@@ -14,6 +14,7 @@
             field={@form[:name]}
             placeholder="Filename including extension..."
             autocomplete="off"
+            phx-debounce="blur"
           />
         </div>
       </div>
@@ -21,11 +22,12 @@
         class: "textarea w-full rounded-b-md",
         placeholder: "Insert code...",
         spellcheck: "false",
-        autocomplete: "false"
+        autocomplete: "false",
+        phx_debounce: "blur"
       ) %>
     </div>
     <div class="flex justify-end">
-      <.button class="!bg-gistiPurple border border-white font-brand font-regular text-base text-white hover:!bg-gistiPurple-dark hover:text-gistiDark-light hover:border-gistiDark-light">
+      <.button phx-disable-with="Creating..." class="!bg-gistiPurple border border-white font-brand font-regular text-base text-white hover:!bg-gistiPurple-dark hover:text-gistiDark-light hover:border-gistiDark-light">
         Create Gist
       </.button>
     </div>

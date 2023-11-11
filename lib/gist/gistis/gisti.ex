@@ -18,6 +18,6 @@ defmodule Gist.Gistis.Gisti do
   def changeset(gisti, attrs) do
     gisti
     |> cast(attrs, [:name, :description, :markup_text, :user_id])
-    |> validate_required([:name, :description, :markup_text, :user_id])
+    |> validate_required([:name, :user_id])
   end
 end
