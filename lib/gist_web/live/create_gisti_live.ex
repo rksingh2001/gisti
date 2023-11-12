@@ -15,6 +15,7 @@ defmodule GistWeb.CreateGistiLive do
   def handle_event("create", %{"gisti" => params}, socket) do
     case Gistis.create_gisti(socket.assigns.current_user, params) do
       {:ok, _gist} ->
+        socket = push_event(socket, "clear-textareas", %{})
         changeset = Gistis.change_gisti(%Gisti{})
         {:noreply, assign(socket, :form, to_form(changeset))}
       {:error, %Ecto.Changeset{} = changeset} ->
